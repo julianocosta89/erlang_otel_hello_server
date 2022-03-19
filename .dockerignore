@@ -1,0 +1,5 @@
+_build
+.dockerignore
+Dockerfile
+Dockerfile-collector
+README.md
