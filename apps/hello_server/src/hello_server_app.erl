@@ -11,11 +11,6 @@
 -export([stop/1]).
 
 start(_StartType, _StartArgs) ->
-    Attributes = #{key => val},
-    ExtraMetadata = otel_resource:create(otel_resource_app_env:parse(Attributes), <<"https://opentelemetry.io/schemas/1.8.0">>),
-
-    otel_resource:merge(otel_tracer_provider:resource(), ExtraMetadata),
-
     Dispatch = cowboy_router:compile([
         { '_', [{<<"/">>, hello_handler, [] }]}
     ]),
